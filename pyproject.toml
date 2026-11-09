@@ -1,0 +1,30 @@
+# Code generated from the VEED OpenAPI spec. DO NOT EDIT.
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "veed"
+version = "0.1.0"
+description = "Official Python SDK for the VEED API"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "httpx>=0.27,<1",
+    "pydantic>=2.0,<3",
+]
+
+[project.urls]
+Homepage = "https://veed.io"
+Repository = "https://github.com/veedstudio/veed-sdk-python"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/veed"]
+
+# hatchling ships the whole tree by default, which put .github/workflows on
+# PyPI. (.gitignore lands there regardless of this list.)
+[tool.hatch.build.targets.sdist]
+include = ["src/veed", "tests", "README.md", "LICENSE", "pyproject.toml"]
